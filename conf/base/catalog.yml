@@ -17,5 +17,9 @@ model_input_table:
 classificator:
   type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
   data_set:
-    type: pickle.PickleDataSet
-    filepath: data/06_models/classificator.pkl
+    #type: pickle.PickleDataSet
+    type: kedro_mlflow.io.models.MlflowModelSaverDataSet
+    #filepath: data/06_models/classificator.pkl
+    flavor: mlflow.sklearn
+    filepath: data/06_models/classificator
+

@@ -6,6 +6,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import precision_score
 from sklearn.model_selection import train_test_split
 
+import mlflow
+from kedro_mlflow.io.metrics import MlflowMetricDataSet
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
 
@@ -30,3 +32,5 @@ def evaluate_model(
     score = precision_score(y_true=y_test, y_pred=y_pred,average = 'weighted')
     logger = logging.getLogger(__name__)
     logger.info("Model has a precision score of %.3f on test data.", score)
+    metric_ds = MlflowMetricDataSet(key="precision")
+    metric_ds.save(score) 
