@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/adam.ciaciura/Documents/Python/kedro_test/penguins/mlruns/308237444383005644/4b6405bc06294a87a3b8e6269fc63e56/artifacts
+end_time: 1696858999499
+entry_point_name: ''
+experiment_id: '308237444383005644'
+lifecycle_stage: active
+run_id: 4b6405bc06294a87a3b8e6269fc63e56
+run_name: __default__
+run_uuid: 4b6405bc06294a87a3b8e6269fc63e56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1696858999007
+status: 3
+tags: []
+user_id: adam.ciaciura

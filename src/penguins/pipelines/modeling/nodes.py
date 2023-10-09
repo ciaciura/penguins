@@ -27,6 +27,6 @@ def evaluate_model(
     classificator: SVC, X_test: pd.DataFrame, y_test: pd.Series
 ):
     y_pred = classificator.predict(X_test)
-    score = precision_score(y_test, y_pred)
+    score = precision_score(y_true=y_test, y_pred=y_pred,average = 'weighted')
     logger = logging.getLogger(__name__)
     logger.info("Model has a precision score of %.3f on test data.", score)

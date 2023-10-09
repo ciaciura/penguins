@@ -15,6 +15,7 @@ model_input_table:
   filepath: data/03_primary/model_input_table.pq
 
 classificator:
-  type: pickle.PickleDataSet
-  filepath: data/06_models/classificator.pickle
-  versioned: true
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: pickle.PickleDataSet
+    filepath: data/06_models/classificator.pkl
