@@ -1,13 +1,13 @@
-"""
-This is a boilerplate pipeline 'preprocessing'
-generated using Kedro 0.18.13
-"""
 import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 
 def preprocess_penguins(
         penguins: pd.DataFrame
 ) -> pd.DataFrame:
-    
+    #to encode
+    penguins["island"]
+    penguins["sex"]
+    penguins["species"]
     return penguins
 
 def create_model_input_table(

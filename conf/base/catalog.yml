@@ -9,7 +9,12 @@ penguins:
 preprocessed_penguins:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/preprocessed_penguins.pq
-
-preprocessed_penguins:
+  
+model_input_table:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/model_input_table.pq
+
+classificator:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/classificator.pickle
+  versioned: true

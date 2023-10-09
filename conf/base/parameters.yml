@@ -1,0 +1,10 @@
+model_options:
+  test_size: 0.2
+  random_state: 3
+  features:
+    - island
+    - bill_length_mm
+    - bill_depth_mm
+    - flipper_length_mm
+    - body_mass_g
+    - sex
