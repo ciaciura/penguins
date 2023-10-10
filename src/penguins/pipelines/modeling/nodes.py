@@ -1,5 +1,6 @@
+
 import logging
-from typing import Dict, Tuple
+from typing import Dict, List, Tuple, Union
 
 import pandas as pd
 from sklearn.svm import SVC
@@ -27,10 +28,16 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> SVC:
 
 def evaluate_model(
     classificator: SVC, X_test: pd.DataFrame, y_test: pd.Series
-):
+) -> Dict[str, Union[float, List[float]]]:
     y_pred = classificator.predict(X_test)
-    score = precision_score(y_true=y_test, y_pred=y_pred,average = 'weighted')
-    logger = logging.getLogger(__name__)
-    logger.info("Model has a precision score of %.3f on test data.", score)
-    metric_ds = MlflowMetricDataSet(key="precision")
-    metric_ds.save(score) 
+    
+    return{
+        "Accuracy" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "Recall": [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "AUC" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "Precision" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "F1": [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "Time_sec" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "Confusion Matrix" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}]
+
+    }

@@ -1,0 +1,1 @@
+{"penguins": {"rows": 344, "columns": 7, "file_size": 13478}, "preprocessed_penguins": {"rows": 344, "columns": 7, "file_size": 8611}, "model_input_table": {"rows": 342, "columns": 7, "file_size": 10956}, "X_train": {"rows": 273, "columns": 6}, "X_test": {"rows": 69, "columns": 6}}
