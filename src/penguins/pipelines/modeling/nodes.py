@@ -26,18 +26,26 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> SVC:
     return classificator
 
 
+from sklearn.metrics import accuracy_score, recall_score, roc_auc_score, precision_score, f1_score, confusion_matrix
+
 def evaluate_model(
     classificator: SVC, X_test: pd.DataFrame, y_test: pd.Series
 ) -> Dict[str, Union[float, List[float]]]:
     y_pred = classificator.predict(X_test)
     
+    accuracy = accuracy_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred, average='weighted')
+    auc = roc_auc_score(y_test, y_pred, multi_class='ovr', average='weighted')
+    precision = precision_score(y_test, y_pred, average='weighted')
+    f1 = f1_score(y_test, y_pred, average='weighted')
+    cm = confusion_matrix(y_test, y_pred)
+    
     return{
-        "Accuracy" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "Recall": [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "AUC" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "Precision" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "F1": [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
+        "Accuracy" : [{"value": accuracy, "step": 1}],
+        "Recall": [{"value": recall, "step": 1}],
+        "AUC" : [{"value": auc, "step": 1}],
+        "Precision" : [{"value": precision, "step": 1}],
+        "F1": [{"value": f1, "step": 1}],
         "Time_sec" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "Confusion Matrix" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}]
-
+        "Confusion Matrix" : [{"value": cm.tolist(), "step": 1}]
     }
