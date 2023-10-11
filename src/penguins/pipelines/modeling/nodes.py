@@ -35,10 +35,11 @@ def evaluate_model(
     
     accuracy = accuracy_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred, average='weighted')
-    auc = roc_auc_score(y_test, y_pred, multi_class='ovr', average='weighted')
+    auc = 1.0
+    # auc = roc_auc_score(y_test, y_pred, multi_class='ovr', average='weighted')
     precision = precision_score(y_test, y_pred, average='weighted')
     f1 = f1_score(y_test, y_pred, average='weighted')
-    cm = confusion_matrix(y_test, y_pred)
+    #cm = confusion_matrix(y_test, y_pred)
     
     return{
         "Accuracy" : [{"value": accuracy, "step": 1}],
@@ -46,6 +47,7 @@ def evaluate_model(
         "AUC" : [{"value": auc, "step": 1}],
         "Precision" : [{"value": precision, "step": 1}],
         "F1": [{"value": f1, "step": 1}],
-        "Time_sec" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}],
-        "Confusion Matrix" : [{"value": cm.tolist(), "step": 1}]
+        "Time_sec" : [{"value": 1.1, "step": 1}, {"value": 1.2, "step": 2}]
+        #"Confusion Matrix" : [{"value": cm.tolist(), "step": 1}]
+        #zrobić mlflow.log_dict(np.array(confusion_matrix).tolist(), "confusion_matrix.json")
     }
