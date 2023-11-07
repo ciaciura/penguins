@@ -2,13 +2,17 @@
 
 ## Runing the project
 
-* Create conda envirement
+1. Create conda envirement
 ```
 conda env create -f environment.yml
 ```
-* Activte the envirement
+2. Activte the envirement
 ```
 conda activate penguins-env
+```
+3. Run the project
+```
+kedro run
 ```
 
 ## Overview
