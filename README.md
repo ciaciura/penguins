@@ -1,5 +1,16 @@
 # penguins
 
+## Runing the project
+
+* Create conda envirement
+```
+conda env create -f environment.yml
+```
+* Activte the envirement
+```
+conda activate penguins-env
+```
+
 ## Overview
 
 This is your new Kedro project, which was generated using `kedro 0.18.13`.
