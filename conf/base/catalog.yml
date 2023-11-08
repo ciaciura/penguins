@@ -14,12 +14,10 @@ model_input_table:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/model_input_table.pq
 
-#classificator:
-  #type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
-  #data_set:
-    #type: kedro_mlflow.io.models.MlflowModelSaverDataSet
-    #flavor: mlflow.sklearn
-    #filepath: data/06_models/classificator
+classificator:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/classificator.pkl
+  backend: pickle
     
-metrics:
-    type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
+#metrics:
+    #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
