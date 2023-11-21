@@ -15,6 +15,10 @@ conda activate penguins-env
 kedro run
 ```
 
+## PyCharm Setup
+
+[Setup link](https://docs.kedro.org/en/stable/development/set_up_pycharm.html)
+
 ## Overview
 
 This is your new Kedro project, which was generated using `kedro 0.18.13`.
