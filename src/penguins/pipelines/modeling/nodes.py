@@ -18,5 +18,5 @@ def train_model(train: pd.DataFrame, test: pd.DataFrame) -> TabularPredictor:
     classificator = TabularPredictor(label="species",log_to_file=False,problem_type="multiclass",eval_metric="accuracy")
     classificator.fit(train, time_limit=120)
     y_pred = classificator.evaluate(test)
-    return classificator.get_model_best()
+    return classificator
     
