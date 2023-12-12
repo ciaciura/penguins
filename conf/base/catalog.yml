@@ -18,6 +18,10 @@ classificator:
   type: pickle.PickleDataSet
   filepath: data/06_models/classificator.pkl
   backend: pickle
+
+api_data_catalog:
+  type: text.TextDataSet
+  filepath: data/01_row/api_data_catalog.txt
     
 #metrics:
     #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
