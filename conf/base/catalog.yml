@@ -16,8 +16,23 @@ model_input_table:
 
 classificator:
   type: pickle.PickleDataSet
-  filepath: data/06_models/classificator.pkl
+  filepath: data/04_feature/classificator.pkl
   backend: pickle
+
+island_encoder:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/island_encoder.pkl
+  backend: pickle
+
+species_encoder:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/species_encoder.pkl
+  backend: pickle
+
+sex_encoder:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/species_encoder.pkl
+  backend: pickle 
     
 #metrics:
     #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet

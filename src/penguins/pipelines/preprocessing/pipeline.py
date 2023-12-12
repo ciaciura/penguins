@@ -13,7 +13,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         node(
                 func=preprocess_penguins,
                 inputs="penguins",
-                outputs="preprocessed_penguins",
+                outputs=["preprocessed_penguins","island_encoder","sex_encoder","species_encoder"],
                 name="preprocess_penguins_node",
             ),
         node(
