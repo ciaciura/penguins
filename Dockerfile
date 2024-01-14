@@ -28,7 +28,8 @@ RUN /bin/bash -c "source activate penguins-env"
 RUN kedro run -p preprocessing
 RUN kedro run -p modeling
 
-#TODO Naprawić i odpalić jeszcze fastapi
+#TODO Naprawić serving
+#TODO odapić w kontenerze fastapi
 # Run the fastapi server
 #CMD ["uvicorn", "main.py", "--reload"]
 
