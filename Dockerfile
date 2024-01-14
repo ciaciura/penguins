@@ -33,4 +33,4 @@ RUN kedro run -p modeling
 #CMD ["uvicorn", "main.py", "--reload"]
 
 # Start FastAPI using Uvicorn when the container launches
-#CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD conda run -n penguins-env /bin/bash -c source activate penguins-env && uvicorn main:app --reload --port 8000
