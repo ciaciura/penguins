@@ -27,6 +27,8 @@ encoders:
   type: pickle.PickleDataSet
   filepath: data/02_intermediate/encoders.pkl
   backend: pickle
-
+api_result:
+  type: text.TextDataSet
+  filepath: data/08_reporting/api_result.txt
 #metrics:
     #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet

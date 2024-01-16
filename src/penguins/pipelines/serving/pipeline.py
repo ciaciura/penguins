@@ -13,7 +13,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         node(
             func=save_data,
             inputs=["api_data_catalog", "classificator","encoders"],
-            outputs="new_api_data",
+            outputs="api_result",
             name="save_data_node",
         )
     ])

@@ -8,6 +8,6 @@ def save_data(data: pd.DataFrame, classificator: TabularPredictor,encoders: pick
     df["island"]=encoders["island"].transform(df["island"])
     df["sex"]=encoders["sex"].transform(df["sex"])
     pred = classificator.predict(df)
-    pred=encoders["species"].inverse_transform(pred)
+    pred=encoders["species"].inverse_transform(pred)[0]
     print(pred)
     return pred
