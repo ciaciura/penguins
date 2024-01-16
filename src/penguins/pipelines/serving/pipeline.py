@@ -12,8 +12,8 @@ def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
         node(
             func=save_data,
-            inputs=["api_data_catalog", "classificator"],
-            outputs="new_api_data",
+            inputs=["api_data_catalog", "classificator","encoders"],
+            outputs="api_result",
             name="save_data_node",
         )
     ])
