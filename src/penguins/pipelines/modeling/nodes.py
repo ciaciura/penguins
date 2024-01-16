@@ -13,10 +13,11 @@ def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
  
  
 def train_model(train: pd.DataFrame, test: pd.DataFrame) -> TabularPredictor:
-    #mlflow.set_experiment("penguins")
+    mlflow.set_experiment("penguins")
     classificator = TabularPredictor(label="species",log_to_file=False,problem_type="multiclass",eval_metric="accuracy")
     classificator.fit(train, time_limit=120)
     y_pred = classificator.evaluate(test)
-    #mlflow.log_metric(classificator.summary()["leaderboard_val_metric"])
+    for key,value in classificator.fit_summary()["model_performance"].items():
+        mlflow.log_metric(f"{key}_accuracy",value)
     return classificator
     
