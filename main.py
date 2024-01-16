@@ -10,23 +10,26 @@ app = FastAPI()
 @app.post("/run-pipeline/")
 def run_pipeline(island: str, bill_length_mm: float, bill_depth_mm: float, flipper_length_mm: float,
                  body_mass_g: float, sex: str):
-    bootstrap_project(os.getcwd())
+    try:
+        bootstrap_project(os.getcwd())
 
-    req = f"island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex\n{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}"
+        req = f"island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex\n{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}"
 
-    extra_params = {
-        'api_data_catalog': req
-    }
+        extra_params = {
+            'api_data_catalog': req
+        }
 
-    session = KedroSession.create("penguins", extra_params=extra_params)
+        session = KedroSession.create("penguins", extra_params=extra_params)
 
-    catalog = session.load_context().catalog
-    catalog.save("api_data_catalog", req)
+        catalog = session.load_context().catalog
+        catalog.save("api_data_catalog", req)
 
-    session.run("serving")
+        session.run("serving")
 
-    result = catalog.load("api_result")
+        result = catalog.load("api_result")
 
-    print(result)
+        print(result)
 
-    return {"result": result}
+        return {"result": result}
+    except Exception as e:
+        return {"error": e}
