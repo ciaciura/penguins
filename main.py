@@ -15,8 +15,7 @@ def run_pipeline(species: str, island: str, bill_length_mm: float, bill_depth_mm
     # Set up the DataCatalog with the input value from the request
     io = DataCatalog({"api_data_catalog": MemoryDataset()})
     io.save("api_data_catalog",
-            f"{species},{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}")
+            f"species,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex\n{species},{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}")
     # Run the pipeline and get the result
-    result = SequentialRunner().run(pipeline, catalog=io)
-
+    result = SequentialRunner().run(pipeline, catalog=io).to_dict(orient="records")["predictions"]
     return {"result": result}

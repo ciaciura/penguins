@@ -21,7 +21,7 @@ classificator:
 
 api_data_catalog:
   type: text.TextDataSet
-  filepath: data/01_row/api_data_catalog.txt
+  filepath: data/08_reporting/api_data_catalog.txt
 
 encoders:
   type: pickle.PickleDataSet
