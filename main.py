@@ -11,9 +11,10 @@ bootstrap_project(Path().cwd())
 session_tmp = KedroSession.create("penguins")
 catalog = session_tmp.load_context().catalog
 
+
 @app.post("/run-pipeline/")
-def run_pipeline(island: str, bill_length_mm: float, bill_depth_mm: float, flipper_length_mm: float,
-                 body_mass_g: float, sex: str):
+def run_pipeline(island: str = "Dream", bill_length_mm: float = 1, bill_depth_mm: float = 1,
+                 flipper_length_mm: float = 1, body_mass_g: float = 1, sex: str = "MALE"):
     try:
         with KedroSession.create() as session:
             req = f"island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex\n{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}"
