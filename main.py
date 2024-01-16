@@ -15,8 +15,6 @@ catalog = session_tmp.load_context().catalog
 def run_pipeline(island: str, bill_length_mm: float, bill_depth_mm: float, flipper_length_mm: float,
                  body_mass_g: float, sex: str):
     try:
-        # session = KedroSession.create("penguins")
-
         with KedroSession.create() as session:
             req = f"island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex\n{island},{bill_length_mm},{bill_depth_mm},{flipper_length_mm},{body_mass_g},{sex}"
 
@@ -31,4 +29,5 @@ def run_pipeline(island: str, bill_length_mm: float, bill_depth_mm: float, flipp
             return {"result": result}
     except Exception as e:
         print(e)
-        return {"error": e}
+        return {"error": str(e)}
+
