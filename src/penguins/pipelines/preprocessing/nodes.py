@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 def preprocess_penguins(
         penguins: pd.DataFrame
 ) -> pd.DataFrame:
-    #to encode
+    # to encode
     island_encoder = LabelEncoder()
     penguins["island"] = island_encoder.fit_transform(penguins["island"])
     sex_encoder = LabelEncoder()
@@ -22,8 +22,9 @@ def preprocess_penguins(
 
     return penguins, encoders
 
+
 def create_model_input_table(
-     preprocess_penguins: pd.DataFrame
+        preprocess_penguins: pd.DataFrame
 ) -> pd.DataFrame:
     model_input_table = preprocess_penguins.dropna()
     return model_input_table

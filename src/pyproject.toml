@@ -28,4 +28,4 @@ docs = [
 ]
 
 [tool.setuptools.dynamic]
-dependencies = {file = "requirements.txt"}
+dependencies = { file = "requirements.txt" }

@@ -9,7 +9,7 @@ penguins:
 preprocessed_penguins:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/preprocessed_penguins.pq
-  
+
 model_input_table:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/model_input_table.pq
@@ -30,5 +30,5 @@ encoders:
 api_result:
   type: text.TextDataSet
   filepath: data/08_reporting/api_result.txt
-#metrics:
-    #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
+    #metrics:
+  #type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
