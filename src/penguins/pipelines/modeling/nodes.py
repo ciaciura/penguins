@@ -1,12 +1,11 @@
-import logging
-from typing import Dict, List, Tuple, Union
- 
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from autogluon.tabular import TabularDataset, TabularPredictor
- 
+from typing import Dict, Tuple
+
 import mlflow
- 
+import pandas as pd
+from autogluon.tabular import TabularPredictor
+from sklearn.model_selection import train_test_split
+
+
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
     train ,test = train_test_split(data,test_size=0.2)    
     return test, test

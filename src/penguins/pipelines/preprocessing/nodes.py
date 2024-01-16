@@ -1,7 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.preprocessing import LabelEncoder
-from joblib import dump
 
 
 def preprocess_penguins(
