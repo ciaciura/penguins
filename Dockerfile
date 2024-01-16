@@ -33,5 +33,5 @@ EXPOSE 8000
 #TODO Naprawić serving
 #TODO odapić w kontenerze fastapi
 # Start FastAPI using Uvicorn when the container launches
-CMD /bin/bash -c "source activate penguins-env && python -m uvicorn main:app --port 8000 --host 0.0.0.0"
+CMD /bin/bash -c "source activate penguins-env && python -m uvicorn main:app --port 8000 --host 0.0.0.0 --timeout-keep-alive 120"
 
