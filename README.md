@@ -17,7 +17,7 @@ conda activate penguins-env
 3. Run the project
 
 ```
-kedro run
+kedro run 
 ```
 
 ## PyCharm Setup
