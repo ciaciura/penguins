@@ -11,7 +11,7 @@ To run the tests, run ``kedro test`` from the project root directory.
 from pathlib import Path
 
 import pytest
-from kedro.config import ConfigLoader
+from kedro.config import OmegaConfigLoader
 from kedro.framework.context import KedroContext
 from kedro.framework.hooks import _create_hook_manager
 from kedro.framework.project import settings
@@ -19,15 +19,17 @@ from kedro.framework.project import settings
 
 @pytest.fixture
 def config_loader():
-    return ConfigLoader(conf_source=str(Path.cwd() / settings.CONF_SOURCE))
+    """Load the config file for tests"""
+    return OmegaConfigLoader(conf_source=str(Path.cwd() / settings.CONF_SOURCE))
 
 
 @pytest.fixture
-def project_context(config_loader):
+def project_context(cfg_loader):
+    """Introduce project context so tests behave like in a real project."""
     return KedroContext(
         package_name="penguins",
         project_path=Path.cwd(),
-        config_loader=config_loader,
+        config_loader=cfg_loader,
         hook_manager=_create_hook_manager(),
     )
 
@@ -36,5 +38,10 @@ def project_context(config_loader):
 # and should be replaced with the ones testing the project
 # functionality
 class TestProjectContext:
-    def test_project_path(self, project_context):
-        assert project_context.project_path == Path.cwd()
+    """Example test for project context"""
+    def test_project_path(self, proj_context):
+        """Example test for project path"""
+        assert proj_context.project_path == Path.cwd()
+    def test_project_name(self, proj_context):
+        """Example test for project name"""
+        assert proj_context.project_name == "penguins"

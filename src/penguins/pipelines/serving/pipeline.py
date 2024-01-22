@@ -5,10 +5,11 @@ generated using Kedro 0.18.14
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import save_data
+from penguins.pipelines.serving.nodes import save_data
 
 
-def create_pipeline(**kwargs) -> Pipeline:
+def create_pipeline() -> Pipeline:
+    """Create the kedro serving pipeline."""
     return pipeline([
         node(
             func=save_data,

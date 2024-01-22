@@ -5,10 +5,11 @@ generated using Kedro 0.18.13
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import preprocess_penguins, create_model_input_table
+from penguins.pipelines.preprocessing.nodes import preprocess_penguins, create_model_input_table
 
 
-def create_pipeline(**kwargs) -> Pipeline:
+def create_pipeline() -> Pipeline:
+    """Create the kedro preprocessing pipeline."""
     return pipeline([
         node(
             func=preprocess_penguins,

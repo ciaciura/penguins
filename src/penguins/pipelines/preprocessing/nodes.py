@@ -1,3 +1,4 @@
+"""Nodes for the preprocessing pipeline."""
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
@@ -5,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 def preprocess_penguins(
         penguins: pd.DataFrame
 ) -> pd.DataFrame:
+    """Preprocess the penguins data by encoding categorical columns."""
     # to encode
     island_encoder = LabelEncoder()
     penguins["island"] = island_encoder.fit_transform(penguins["island"])
@@ -24,7 +26,8 @@ def preprocess_penguins(
 
 
 def create_model_input_table(
-        preprocess_penguins: pd.DataFrame
+        preprocessed_penguins: pd.DataFrame
 ) -> pd.DataFrame:
-    model_input_table = preprocess_penguins.dropna()
+    """Create a model input table by dropping rows with missing values."""
+    model_input_table = preprocessed_penguins.dropna()
     return model_input_table
