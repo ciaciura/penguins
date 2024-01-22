@@ -1,0 +1,9 @@
+name: 'Test'
+description: 'Checks if the project works'
+inputs:
+outputs:
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{}}
