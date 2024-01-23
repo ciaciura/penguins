@@ -1,14 +1,35 @@
 # penguins
 
-## Runing the project
+## Description
 
-1. Create conda envirement
+The project aims to create a model that predicts the penguin species based on specific
+attributes.
+
+The penguins dataset was used, consisting of the following data:
+* species
+* island
+* bill length
+* bill depth
+* flipper length
+* body mass
+* sex
+
+An application utilizing a machine learning engine, designed for easy portability across various environments, straightforward deployment in diverse settings, and structured with separated operational logic.
+
+The project used technologies such as: Fast API, Kedro, Swagger and libraries such as: Scikit-learn and autogluon.tabular.
+
+
+## Running the project
+
+To run the project, you need to perform the following steps:
+
+1. Create conda environment
 
 ```
 conda env create -f environment.yml
 ```
 
-2. Activte the envirement
+2. Activte the environment
 
 ```
 conda activate penguins-env
@@ -21,6 +42,8 @@ kedro run
 ```
 
 ## PyCharm Setup
+
+Here's a quick guide to setting up PyCharm as a development environment for working on Kedro projects.
 
 [Setup link](https://docs.kedro.org/en/stable/development/set_up_pycharm.html)
 
@@ -162,3 +185,28 @@ This will add a hook in `.git/config` which will run `nbstripout` before anythin
 ## Package your Kedro project
 
 [Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
+
+
+## Docker Configuration
+
+### Prerequisites
+Make sure you have Docker installed on your system. If not, you can download it [here](https://www.docker.com/get-started).
+
+### Building the Docker Image
+To build the Docker image, run the following command in the project root directory:
+
+```
+docker build -t your-image-name .
+```
+
+## Scikit-learn library instalation
+
+```
+pip install -U scikit-learn
+``` 
+
+## Autogluon library installation
+
+```
+pip install autogluon
+```
