@@ -5,14 +5,15 @@ generated using Kedro 0.18.13
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import split_data, train_model
+from penguins.pipelines.modeling.nodes import split_data, train_model
 
 
-def create_pipeline(**kwargs) -> Pipeline:
+def create_pipeline() -> Pipeline:
+    """Create the kedro modeling pipeline."""
     return pipeline([
         node(
             func=split_data,
-            inputs=["model_input_table", "params:model_options"],
+            inputs=["model_input_table"],
             outputs=["train", "test"],
             name="split_data_node",
         ),
