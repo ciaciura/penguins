@@ -13,7 +13,7 @@ def create_pipeline() -> Pipeline:
     return pipeline([
         node(
             func=split_data,
-            inputs=["model_input_table", "params:model_options"],
+            inputs=["model_input_table"],
             outputs=["train", "test"],
             name="split_data_node",
         ),

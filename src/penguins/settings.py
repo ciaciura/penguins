@@ -24,6 +24,7 @@ https://kedro.readthedocs.io/en/stable/kedro_project_setup/settings.html."""
 # Class that manages how configuration is loaded.
 from kedro.config import OmegaConfigLoader  # noqa: import-outside-toplevel
 
+# CONFIG_LOADER_CLASS = OmegaConfigLoader
 ConfigLoaderClass = OmegaConfigLoader
 # Keyword arguments to pass to the `CONFIG_LOADER_CLASS` constructor.
 # CONFIG_LOADER_ARGS = {
