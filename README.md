@@ -1,4 +1,4 @@
-# penguins
+# penguin-predictor
 
 ## Description
 
