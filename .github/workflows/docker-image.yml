@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "suml-docker" ]
+    branches: [ "asi-docker" ]
   pull_request:
-    branches: [ "suml-docker" ]
+    branches: [ "main" ]
 
 jobs:
 
