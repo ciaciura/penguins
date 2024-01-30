@@ -38,8 +38,23 @@ conda activate penguins-env
 3. Run the project
 
 ```
-kedro run 
+kedro run -p preprocessing
+kedro run -p modeling
+uvicorn main:app
 ```
+
+4. Running model visualisation
+
+```
+kedro viz run
+```
+
+5. Running experiment results
+
+```
+mlflow ui
+```
+
 
 ## PyCharm Setup
 
@@ -185,28 +200,3 @@ This will add a hook in `.git/config` which will run `nbstripout` before anythin
 ## Package your Kedro project
 
 [Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
-
-
-## Docker Configuration
-
-### Prerequisites
-Make sure you have Docker installed on your system. If not, you can download it [here](https://www.docker.com/get-started).
-
-### Building the Docker Image
-To build the Docker image, run the following command in the project root directory:
-
-```
-docker build -t your-image-name .
-```
-
-## Scikit-learn library instalation
-
-```
-pip install -U scikit-learn
-``` 
-
-## Autogluon library installation
-
-```
-pip install autogluon
-```
